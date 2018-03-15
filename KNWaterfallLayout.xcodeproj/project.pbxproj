@@ -13,6 +13,7 @@
 		C2326C39205A4F04002DB01F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2326C38205A4F04002DB01F /* Assets.xcassets */; };
 		C2326C3C205A4F04002DB01F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2326C3A205A4F04002DB01F /* LaunchScreen.storyboard */; };
 		C2326C3F205A4F04002DB01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2326C3E205A4F04002DB01F /* main.m */; };
+		C2326C47205A57F5002DB01F /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C2326C46205A57F5002DB01F /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		C2326C3B205A4F04002DB01F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2326C3D205A4F04002DB01F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2326C3E205A4F04002DB01F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C2326C45205A57F5002DB01F /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		C2326C46205A57F5002DB01F /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				C2326C30205A4F04002DB01F /* AppDelegate.m */,
 				C2326C32205A4F04002DB01F /* ViewController.h */,
 				C2326C33205A4F04002DB01F /* ViewController.m */,
+				C2326C45205A57F5002DB01F /* Model.h */,
+				C2326C46205A57F5002DB01F /* Model.m */,
 				C2326C35205A4F04002DB01F /* Main.storyboard */,
 				C2326C38205A4F04002DB01F /* Assets.xcassets */,
 				C2326C3A205A4F04002DB01F /* LaunchScreen.storyboard */,
@@ -145,6 +150,7 @@
 				C2326C34205A4F04002DB01F /* ViewController.m in Sources */,
 				C2326C3F205A4F04002DB01F /* main.m in Sources */,
 				C2326C31205A4F04002DB01F /* AppDelegate.m in Sources */,
+				C2326C47205A57F5002DB01F /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
