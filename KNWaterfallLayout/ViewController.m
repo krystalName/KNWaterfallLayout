@@ -27,7 +27,7 @@
 -(void)getWebData{
     
     ///需要utf-8解析
-    NSString *urlString = [@"http://image.baidu.com/channel/listjson?pn=0&rn=50&tag1=美女&tag2=全部&ie=utf8" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [@"http://image.baidu.com/channel/listjson?pn=0&rn=50&tag1=美女&tag2=全部&ie=utf8" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     ///设置请求url
     NSURL *url =[NSURL URLWithString:urlString];
     ///创建request 请求
