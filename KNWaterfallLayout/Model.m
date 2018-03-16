@@ -11,5 +11,9 @@
 @implementation Model
 
 
+-(void)dealloc
+{
+    
+}
 
 @end

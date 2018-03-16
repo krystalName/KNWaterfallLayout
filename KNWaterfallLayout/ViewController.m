@@ -11,6 +11,10 @@
 
 @interface ViewController ()
 
+///数据dataArray
+@property(nonatomic, strong)NSMutableArray *dataArray;
+
+
 @end
 
 @implementation ViewController
@@ -37,8 +41,7 @@
     [request setHTTPMethod:@"GET"];
     ///设置请求超时时间。默认为60s
     [request setTimeoutInterval:30.0];
-    ///设置头部参数
-    [request addValue:@"gzip" forHTTPHeaderField:@"Content-Encoding"];
+    
     // 构造NSURLSessionConfiguration
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     ///创建网络会话
@@ -54,8 +57,20 @@
             if (error) {
                 NSLog(@"get error :%@",error.localizedDescription);
             }else {
-                /// 解析成功，处理数据，通过GCD获取主队列，在主线程中刷新界面。
-                NSLog(@"get success :%@",object);
+              
+                NSMutableArray *array = [object[@"data"] mutableCopy];
+                
+                NSLog(@"array  : ----- %@",array);
+                
+                for (NSDictionary *dic in array) {
+                    Model *model = [Model new];
+                    model.ImageURL = dic[@"image_url"];
+                    model.ImageTitle = dic[@"abs"];
+                    model.ImageHeight = [dic[@"image_height"] floatValue];
+                    model.ImageWidth = [dic[@"image_width"] floatValue];
+                    ///添加对象
+                    [self.dataArray addObject:model];
+                }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // 刷新界面...
                     
@@ -74,5 +89,11 @@
     [super didReceiveMemoryWarning];
 }
 
+-(NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 @end
