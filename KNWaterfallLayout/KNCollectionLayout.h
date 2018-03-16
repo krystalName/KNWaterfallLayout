@@ -25,4 +25,12 @@ typedef CGFloat(^HeightBlock)(NSIndexPath *indexPath , CGFloat widht);
 @property(nonatomic, assign) CGFloat lineSoacing;
 
 @property(nonatomic, assign) UIEdgeInsets sectionInset;
+
+/**
+ 对象方法
+
+ @param block 在block中最后返回一个item的宽度
+ */
+-(void)computeindexItemHightWithWidhtBlock:(CGFloat(^)(NSIndexPath *indexPath, CGFloat widht))block;
+
 @end
