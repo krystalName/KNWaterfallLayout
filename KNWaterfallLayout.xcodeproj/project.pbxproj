@@ -15,6 +15,7 @@
 		C2326C3F205A4F04002DB01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2326C3E205A4F04002DB01F /* main.m */; };
 		C2326C47205A57F5002DB01F /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C2326C46205A57F5002DB01F /* Model.m */; };
 		C2326C4A205BA10C002DB01F /* KNCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C2326C49205BA10C002DB01F /* KNCollectionLayout.m */; };
+		C24B2AA3205F61EB00FDA32A /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C24B2AA2205F61EB00FDA32A /* CollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		C2326C46205A57F5002DB01F /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		C2326C48205BA10C002DB01F /* KNCollectionLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KNCollectionLayout.h; sourceTree = "<group>"; };
 		C2326C49205BA10C002DB01F /* KNCollectionLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KNCollectionLayout.m; sourceTree = "<group>"; };
+		C24B2AA1205F61EB00FDA32A /* CollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		C24B2AA2205F61EB00FDA32A /* CollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				C2326C33205A4F04002DB01F /* ViewController.m */,
 				C2326C45205A57F5002DB01F /* Model.h */,
 				C2326C46205A57F5002DB01F /* Model.m */,
+				C24B2AA1205F61EB00FDA32A /* CollectionCell.h */,
+				C24B2AA2205F61EB00FDA32A /* CollectionCell.m */,
 				C2326C48205BA10C002DB01F /* KNCollectionLayout.h */,
 				C2326C49205BA10C002DB01F /* KNCollectionLayout.m */,
 				C2326C35205A4F04002DB01F /* Main.storyboard */,
@@ -155,6 +160,7 @@
 				C2326C34205A4F04002DB01F /* ViewController.m in Sources */,
 				C2326C3F205A4F04002DB01F /* main.m in Sources */,
 				C2326C4A205BA10C002DB01F /* KNCollectionLayout.m in Sources */,
+				C24B2AA3205F61EB00FDA32A /* CollectionCell.m in Sources */,
 				C2326C31205A4F04002DB01F /* AppDelegate.m in Sources */,
 				C2326C47205A57F5002DB01F /* Model.m in Sources */,
 			);
