@@ -8,11 +8,19 @@
 
 #import "ViewController.h"
 #import "Model.h"
+#import "CollectionCell.h"
+#import "KNCollectionLayout.h"
 
-@interface ViewController ()
 
+@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+
+
+
+///view;
+@property(nonatomic, strong)UICollectionView *collectionView;
+@property(nonatomic, strong)KNCollectionLayout *layout;
 ///数据dataArray
-@property(nonatomic, strong)NSMutableArray *dataArray;
+@property(nonatomic, strong)NSMutableArray  *dataArray;
 
 
 @end
@@ -23,7 +31,9 @@
     [super viewDidLoad];
 
     self.title = @"瀑布流";
-    
+
+    // 刷新界面...
+    [self CreateSubView];
     [self getWebData];
 }
 
@@ -59,9 +69,7 @@
             }else {
               
                 NSMutableArray *array = [object[@"data"] mutableCopy];
-                
-                NSLog(@"array  : ----- %@",array);
-                
+                                
                 for (NSDictionary *dic in array) {
                     Model *model = [Model new];
                     model.ImageURL = dic[@"image_url"];
@@ -72,22 +80,79 @@
                     [self.dataArray addObject:model];
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    // 刷新界面...
-                    
+                    [self.collectionView reloadData];
                 });
             }
         }
         
     }];
-    
     ///执行任务
     [task resume];
+}
+
+-(void)CreateSubView{
+    
+    self.layout = [[KNCollectionLayout alloc]init];
+    self.layout.lineNumber = 2;//列数
+    self.layout.rowSpacing = 5;//行间距
+    self.layout.lineSpacing = 5; //列间距
+    self.layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    
+    
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64) collectionViewLayout:self.layout];
+    
+    [self.collectionView registerClass:[CollectionCell class] forCellWithReuseIdentifier:@"collectionCell"];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.contentInsetAdjustmentBehavior = NO;
+    self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:self.collectionView];
+    
+    
+    //返回每个cell的高   对应indexPath
+    [self.layout computeindexItemHightWithWidhtBlock:^CGFloat(NSIndexPath *indexPath, CGFloat width) {
+        
+        Model *model = self.dataArray[indexPath.row];
+        CGFloat oldWidth = model.ImageWidth;
+        CGFloat oldHeight = model.ImageHeight;
+        
+        CGFloat newWidth = width;
+        CGFloat newHeigth = oldHeight * newWidth / oldWidth;
+        return newHeigth;
+    }];
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
 }
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    NSLog(@"%ld",self.dataArray.count);
+    if (self.dataArray.count > 0) {
+        return self.dataArray.count - 1;
+    }else{
+        return 0;
+    }
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CollectionCell *cell =[self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
+    
+    cell.model = self.dataArray[indexPath.row];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"选中了第%ld个item",indexPath.row);
+}
+
+
 
 -(NSMutableArray *)dataArray{
     if (!_dataArray) {

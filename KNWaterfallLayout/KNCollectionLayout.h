@@ -16,13 +16,13 @@ typedef CGFloat(^HeightBlock)(NSIndexPath *indexPath , CGFloat widht);
 
 
  ///列数
-@property(nonatomic, assign) NSInteger linNumber;
+@property(nonatomic, assign) NSInteger lineNumber;
 
 ///行间距
 @property(nonatomic, assign) CGFloat rowSpacing;
 
 ///列间距
-@property(nonatomic, assign) CGFloat lineSoacing;
+@property(nonatomic, assign) CGFloat lineSpacing;
 
 @property(nonatomic, assign) UIEdgeInsets sectionInset;
 
